@@ -1,6 +1,6 @@
 {
   "name": "@ragrug/ragrug-nodered",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "RagRug interface for Node-RED",
   "dependencies": {},
   "repository": {
@@ -8,7 +8,7 @@
     "url": "git://github.com/philfleck/ragrug-nodered.git"
   },
   "license": "SEE LICENSE IN LICENSE FILE",
-  "keywords": [],
+  "keywords": ["node-red"],
   "node-red": {
     "version": ">=1.2.6",
     "nodes": {
