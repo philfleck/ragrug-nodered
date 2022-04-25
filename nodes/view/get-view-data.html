@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-view-data',{
+        category: 'ragrug-view',
+        color: '#84d987',
+        defaults: {
+            viewData: { value: 0 },
+            location: { value: "view.data" },
+            clientFunction: { value: "RRJSIATK_GetViewData" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-database",
+        label: function () {
+            var prefix = "Get ";
+            switch (parseInt(this.viewData, 10)) {
+                case 0: return prefix + "Position";
+                case 1: return prefix + "Color";
+                case 2: return prefix + "Filter";
+            }
+        },
+        oneditprepare: function () {
+            $("#node-input-location").typedInput({
+                type: "msg",
+                types: ["msg"],
+                typeField: "#node-input-location-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="get-view-data">
+    <div class="form-row">
+        <label for="node-input-viewData"><i class="fa fa-database"></i> Data Field</label>
+        <select id="node-input-viewData">
+            <option value=0>Position</option>
+            <option value=1>Color</option>
+            <option value=2>Filter</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Storage Location</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-view-data">
+    <p>Retrieves data from a View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>the view to get the data from</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>view.data<span class="property-type">array</span></dt>
+                <dd>the array containing the retrieved data</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>All data is given in the form of arrays of numbers, with the exception of Colors, which is an array of arrays of numbers and Indices, which contains the following data structure <code>{isLinking: true/false, data: []}</code>.</p>
+    <p>Data can be retrieved from the array using the following indices:
+        <ul>
+            <li>VertexId: 0</li>
+            <li>Size: 1</li>
+            <li>Filter: 2</li>
+            <li>Color: 3</li>
+            <li>XPosition: 4</li>
+            <li>YPosition: 5</li>
+            <li>ZPosition: 6</li>
+            <li>Indices: 7</li>
+        </ul>
+    </p>
+</script>

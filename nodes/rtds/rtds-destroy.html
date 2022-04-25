@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-destroy',{
+        category: 'ragrug-rtds',
+        color: '#8c8c8c',
+        defaults: {
+            clientFunction: { value: "RRJSIATK_RTDSDestroy" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-bomb",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-destroy">
+
+</script>
+
+<script type="text/html" data-help-name="rtds-destroy">
+    <p>Destroys a Realtime Data Source.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>rtds.name<span class="property-type">string</span></dt>
+        <dd>name of the data source to destroy</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>Destroying an RTDS is final and can not be undone.</p>
+</script>

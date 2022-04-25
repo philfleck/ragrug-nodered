@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-view',{
+        category: 'ragrug-view',
+        color: '#bdb96d',
+        defaults: {
+            viewName: { value: "" },
+            onFail: { value: false },
+            clientFunction: { value: "RRJSIATK_GetView" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-eye",
+        label: "get-view",
+        oneditprepare: function () {
+            $("#node-input-onFail").typedInput({
+                type: "str",
+                types: ["bool"],
+                typeField: "#node-input-onFail-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="get-view">
+    <div class="form-row">
+        <label for="node-input-viewName"><i class="fa fa-tag"></i> View Name</label>
+        <input type="text" id="node-input-viewName">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-onFail"><i class="fa fa-shield"></i> Continue On Fail</label>
+        <input type="text" id="node-input-onFail">
+        <input type="hidden" id="node-input-onFail-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-view">
+    <p>Verifies that a View is present.</p>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>view.name<span class="property-type">string</span></dt>
+                <dd>name of the retrieved view</dd>
+            </dl>
+        </li>
+    </ol>
+</script>

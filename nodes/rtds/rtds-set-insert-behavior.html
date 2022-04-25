@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-set-insert-behavior',{
+        category: 'ragrug-rtds',
+        color: '#be8fbf',
+        defaults: {
+            shiftdata: { value: 0 },
+            clientFunction: { value: "RRJSIATK_RTDSSetShiftdata" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-set-insert-behavior">
+    <label for="node-input-shiftdata"><i class="fa fa-refesh"></i> Behavior</label>
+    <select id="node-input-shiftdata">
+        <option value=0>Override</option>
+        <option value=1>Shift</option>
+    </select>
+</script>
+
+<script type="text/html" data-help-name="rtds-set-insert-behavior">
+    <p>Sets the insertion behavior of a Realtime Data Source.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>rtds.name<span class="property-type">string</span></dt>
+        <dd>name of the data source to modify</dd>
+    </dl>
+</script>

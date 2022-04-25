@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('hide-show-view', {
+        category: 'ragrug-view',
+        color: '#cccccc',
+        defaults: {
+            shown: { value: true },
+            clientFunction: { value: "RRJSIATK_HideShowView" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-eye-slash",
+        label: function () {
+            return this.shown === "true" ? "Show View" : "Hide View";
+        },
+        oneditprepare: function () {
+            $("#node-input-shown").typedInput({
+                type: "str",
+                types: ["bool"],
+                typeField: "#node-input-shown-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="hide-show-view">
+    <div class="form-row">
+        <label for="node-input-shown"><i class="fa fa-eye-slash"></i> Visible</label>
+        <input type="text" id="node-input-shown">
+        <input type="hidden" id="node-input-shown-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="hide-show-view">
+    <p>Hides or shows a View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>the view to set the visibility of</dd>
+    </dl>
+</script>

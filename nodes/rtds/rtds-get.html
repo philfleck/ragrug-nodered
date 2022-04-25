@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-get',{
+        category: 'ragrug-rtds',
+        color: '#bdb96d',
+        defaults: {
+            rtdsName: { value: "" },
+            onFail: { value: false },
+            clientFunction: { value: "RRJSIATK_RTDSGet" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-onFail").typedInput({
+                type: "str",
+                types: ["bool"],
+                typeField: "#node-input-onFail-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-get">
+    <div class="form-row">
+        <label for="node-input-rtdsName"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-rtdsName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-onFail"><i class="fa fa-shield"></i> Continue On Fail</label>
+        <input type="text" id="node-input-onFail">
+        <input type="hidden" id="node-input-onFail-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtds-get">
+    <p>Verifies that a Realtime Data Source is present.</p>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>rtds.name<span class="property-type"></span></dt>
+                <dd>name of the retrieved data source</dd>
+            </dl>
+        </li>
+    </ol>
+</script>

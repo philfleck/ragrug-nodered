@@ -1,0 +1,100 @@
+<script type="text/javascript">
+    RED.nodes.registerType('set-view-attribute', {
+        category: 'ragrug-view',
+        color: '#a699cf',
+        defaults: {
+            attribute: { value: 0 },
+            attrValue: { value: 0 },
+            attrOverride: { value: false },
+            clientFunction: { value: "RRJSIATK_SetViewAttribute" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-tag",
+        label: function () {
+            var text = "";
+            switch (parseInt(this.attribute, 10)) {
+                case -1: text = "All Attributes"; break;
+                case 0: text = "Size"; break;
+                case 1: text = "Min Size"; break;
+                case 2: text = "Max Size"; break;
+                case 3: text = "Min Norm X"; break;
+                case 4: text = "Max Norm X"; break;
+                case 5: text = "Min Norm Y"; break;
+                case 6: text = "Max Norm Y"; break;
+                case 7: text = "Min Norm Z"; break;
+                case 8: text = "Max Norm Z"; break;
+                case 9: text = "Min X"; break;
+                case 10: text = "Max X"; break;
+                case 11: text = "Min Y"; break;
+                case 12: text = "Max Y"; break;
+                case 13: text = "Min Z"; break;
+                case 14: text = "Max Z"; break;
+                case 15: text = "Blending Destination Mode"; break;
+                case 16: text = "Blending Source Mode"; break;
+            }
+
+            return "Set " + text + (this.attrOverride === "true" && this.attribute >= 0 ? "*" : "");
+        },
+        oneditprepare: function () {
+            $("#node-input-attrOverride").typedInput({
+                type: "str",
+                types: ["bool"],
+                typeField: "#node-input-attrOverride-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="set-view-attribute">
+    <div class="form-row">
+        <label for="node-input-attribute"><i class="fa fa-tag"></i> Attribute</label>
+        <select id="node-input-attribute">
+            <option value=-1>All Attributes</option>
+            <option value=0>Size</option>
+            <option value=1>Min Size</option>
+            <option value=2>Max Size</option>
+            <option value=3>Min Normalized X</option>
+            <option value=4>Max Normalized X</option>
+            <option value=5>Min Normalized Y</option>
+            <option value=6>Max Normalized Y</option>
+            <option value=7>Min Normalized Z</option>
+            <option value=8>Min Normalized Z</option>
+            <option value=9>Min X</option>
+            <option value=10>Max X</option>
+            <option value=11>Min Y</option>
+            <option value=12>Max Y</option>
+            <option value=13>Min Z</option>
+            <option value=14>Max Z</option>
+            <option value=15>Blending Destination Mode</option>
+            <option value=16>Blending Source Mode</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-attrValue"><i class="fa fa-pencil"></i> Value</label>
+        <input type="number" id="node-input-attrValue">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-attrOverride"><i class="fa fa-level-down"></i> Override</label>
+        <input type="text" id="node-input-attrOverride">
+        <input type="hidden" id="node-input-attrOverride-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="set-view-attribute">
+    <p>Sets an attribute for the given View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name<span class="property-type">string</span>
+        </dt>
+        <dt>
+            msg.view.attributes<span class="property-type">array</span>
+        </dt>
+        <dd>array holding the attributes to be applied</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p><code>msg.view.data</code> can be manually constructed by inserting floats into the array.</p>
+</script>

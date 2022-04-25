@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    RED.nodes.registerType('redeploy',{
+        category: 'ragrug',
+        color: '#db6767',
+        defaults: {
+            CNRUpdateBehavior: { value: 0 },
+            flowId: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-refresh",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="redeploy">
+    <label for="node-input-CNRUpdateBehavior"><i class="fa fa-refesh"></i> Update Behavior</label>
+    <select id="node-input-CNRUpdateBehavior">
+        <option value=0>Create New (Default)</option>
+        <option value=1>Always Override</option>
+        <option value=2>If Changed Override</option>
+    </select>
+
+    <div class="form-row">
+        <label for="node-input-flowId"><i class="fa fa-tag"></i> Flow ID</label>
+        <input type="text" id="node-input-flowId" placeholder="">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="redeploy">
+    <p>Updates the client-side version of the flow on redeploy.</p>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>payload<span class="property-type">string</span></dt>
+                <dd>flow ID to be passed into an MQTT node</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>To properly set up this node it needs an inject node with a delay as its input in order to properly detect redeploys. This node's output needs to go into an MQTT node publishing to the <code>cnr/redeployflow</code> topic.</p>
+</script>

@@ -1,0 +1,56 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-add-dimension',{
+        category: 'ragrug-rtds',
+        color: '#be8fbf',
+        defaults: {
+            dimensionName: { value: "" },
+            minValue: { value: 0 },
+            maxValue: { value: 1 },
+            dataType: { value: 1 },
+            clientFunction: { value: "RRJSIATK_RTDSAddDimension" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-add-dimension">
+    <div class="form-row">
+        <label for="node-input-dimensionName"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-dimensionName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-minValue"><i class="fa fa-arrows-h"></i> Min Value</label>
+        <input type="number" id="node-input-minValue">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-maxValue"><i class="fa fa-arrows-h"></i> Max Value</label>
+        <input type="number" id="node-input-maxValue">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-dataType"><i class="fa fa-tag"></i> Data Type</label>
+        <select id="node-input-dataType">
+            <option value=1>Float</option>
+            <option value=2>Int</option>
+            <option value=3>Bool</option>
+            <option value=4>String</option>
+            <option value=5>Date</option>
+            <option value=6>Time</option>
+            <option value=7>Graph</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtds-add-dimension">
+    <p>Adds a dimension to a Realtime Data Source.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>rtds.name<span class="property-type">string</span></dt>
+        <dd>name of the data source to modify</dd>
+    </dl>
+</script>

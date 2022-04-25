@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    RED.nodes.registerType('destroy-view',{
+        category: 'ragrug-view',
+        color: '#8c8c8c',
+        defaults: {
+            clientFunction: { value: "RRJSIATK_DestroyView" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-bomb",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="destroy-view">
+
+</script>
+
+<script type="text/html" data-help-name="destroy-view">
+    <p>destroys a View</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name<span class="property-type">string</span></dt>
+        <dd>name of the View to be destroyed</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>Destroying a node is final and can not be undone.</p>
+</script>

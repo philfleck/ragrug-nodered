@@ -1,0 +1,35 @@
+{
+  "name": "@ragrug/ragrug-nodered",
+  "version": "1.0.0",
+  "description": "RagRug interface for Node-RED",
+  "dependencies": {},
+  "keywords": [],
+  "node-red": {
+    "version": ">=1.2.6",
+    "nodes": {
+      "redeploy": "nodes/util/redeploy.js",
+      "view-builder": "nodes/view/view-builder.js",
+      "get-view": "nodes/view/get-view.js",
+      "hide-show-view": "nodes/view/hide-show-view.js",
+      "destroy-view": "nodes/view/destroy-view.js",
+      "set-view-attribute": "nodes/view/set-view-attribute.js",
+      "set-view-data": "nodes/view/set-view-data.js",
+      "get-view-attribute": "nodes/view/get-view-attribute.js",
+      "get-view-data": "nodes/view/get-view-data.js",
+      "set-view-context": "nodes/view/set-view-context.js",
+      "view-add-axes": "nodes/axis/view-add-axes.js",
+      "view-destroy-axis": "nodes/axis/view-destroy-axis.js",
+      "view-set-axis-data": "nodes/axis/view-set-axis-data.js",
+      "view-set-axis-length": "nodes/axis/view-set-axis-length.js",
+      "view-hide-show-axis": "nodes/axis/view-hide-show-axis.js",
+      "rtds-create": "nodes/rtds/rtds-create.js",
+      "rtds-get": "nodes/rtds/rtds-get.js",
+      "rtds-destroy": "nodes/rtds/rtds-destroy.js",
+      "rtds-set-insert-behavior": "nodes/rtds/rtds-set-insert-behavior.js",
+      "rtds-add-dimension": "nodes/rtds/rtds-add-dimension.js",
+      "rtds-add-dimension-discrete": "nodes/rtds/rtds-add-dimension-discrete.js",
+      "rtds-get-data": "nodes/rtds/rtds-get-data.js",
+      "rtds-set-data": "nodes/rtds/rtds-set-data.js"
+    }
+  }
+}

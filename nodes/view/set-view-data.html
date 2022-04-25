@@ -1,0 +1,64 @@
+<script type="text/javascript">
+    RED.nodes.registerType('set-view-data',{
+        category: 'ragrug-view',
+        color: '#a699cf',
+        defaults: {
+            viewData: { value: 0 },
+            clientFunction: { value: "RRJSIATK_SetViewData" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-database",
+        label: function () {
+            var prefix = "Set "
+            switch (parseInt(this.viewData, 10)) {
+                case -1: return prefix + "All Data";
+                case 0: return prefix + "Vertex ID";
+                case 1: return prefix + "Size";
+                case 2: return prefix + "Filter";
+                case 3: return prefix + "Color";
+                case 4: return prefix + "X Position";
+                case 5: return prefix + "Y Position";
+                case 6: return prefix + "Z Position";
+                case 7: return prefix + "Indices";
+            }
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="set-view-data">
+    <div class="form-row">
+        <label for="node-input-viewData"><i class="fa fa-database"></i> Data Field</label>
+        <select id="node-input-viewData">
+            <option value=-1>All Data</option>
+            <option value=4>X Position</option>
+            <option value=5>Y Position</option>
+            <option value=6>Z Position</option>
+            <option value=1>Size</option>
+            <option value=3>Color</option>
+            <option value=7>Indices</option>
+            <option value=0>Vertex ID</option>
+            <option value=2>Filter</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="set-view-data">
+    <p>Applies data arrays to a View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>name of the view to apply the data to</dd>
+        <dt>
+            view.data
+            <span class="property-type">array</span>
+        </dt>
+        <dd>array holding data to be applied</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p><code>msg.view.data</code> can be manually constructed by assigning an array of values or an array of arrays of values in the case of Color. The only exception to this is Indices, which requires the following data structure: <code>{isLinking: true/false, data: []}</code>.</p>
+    <p>The <code>isLinking</code> field is to be interpreted as such: If true, the indices in <code>data</code> are handled in the default IATK way, which means that two consecuitive points are linked if they have the same linking index, this means that the array needs to be of the length of the View's point count. If false, the indices in <code>data</code> are interpreted as pairwise links between two points, allowing for arbitrary linking.</p>
+</script>

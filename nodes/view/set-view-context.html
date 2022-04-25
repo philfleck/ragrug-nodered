@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    RED.nodes.registerType('set-view-context',{
+        category: 'ragrug-view',
+        color: '#be8fbf',
+        defaults: {
+            targetContext: { value: 0 },
+            clientFunction: { value: "RRJSIATK_SetViewContext" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-globe",
+        label: "set-view-context"
+    });
+</script>
+
+<script type="text/html" data-template-name="set-view-context">
+    <div class="form-row">
+        <label for="node-input-targetContext"><i class="fa fa-globe"></i> Context</label>
+        <select id="node-input-targetContext">
+            <option value=0>World</option>
+            <option value=1>User Canvas</option>
+            <option value=2>Unbound</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="set-view-context">
+    <p>Parents the View's associated GameObject to another context.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>
+            view.name<span class="property-type">string</span>
+        </dt>
+        <dd>the view to change the context of</dd>
+    </dl>
+    <h3>Details</h3>
+    <p>World puts the View into the real-world synchronous context. User Canvas puts the View on the user's HUD. Setting the context to Unbound unparents the GameObject.</p>
+</script>

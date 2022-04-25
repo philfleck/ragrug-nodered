@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    RED.nodes.registerType('view-add-axes',{
+        category: 'ragrug-view',
+        color: '#bf9d73',
+        defaults: {
+            clientFunction: { value: "RRJSIATK_ViewAddAxes" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-bar-chart",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="view-add-axes">
+
+</script>
+
+<script type="text/html" data-help-name="view-add-axes">
+    <p>Adds unconfigured axes to all three dimensions of a View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>view.name<span class="property-type">string</span></dt>
+        <dd>name of the view to add axes to</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>Assumes that the View does not have any axes. Repeated invocations will result in additional but unaddressable axes to be created.</p>
+</script>

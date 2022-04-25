@@ -1,0 +1,120 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-view-attribute',{
+        category: 'ragrug-view',
+        color: '#84d987',
+        defaults: {
+            attribute: { value: 0 },
+            location: { value: "view.attributes"},
+            clientFunction: { value: "RRJSIATK_GetViewAttribute" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-tag",
+        label: function () {
+            var prefix = "Get ";
+            switch (parseInt(this.attribute, 10)) {
+                case -1: return prefix + "All Attributes";
+                case 0: return prefix + "Size";
+                case 1: return prefix + "Min Size";
+                case 2: return prefix + "Max Size";
+                case 3: return prefix + "Min Norm X";
+                case 4: return prefix + "Max Norm X";
+                case 5: return prefix + "Min Norm Y";
+                case 6: return prefix + "Max Norm Y";
+                case 7: return prefix + "Min Norm Z";
+                case 8: return prefix + "Max Norm Z";
+                case 9: return prefix + "Min X";
+                case 10: return prefix + "Max X";
+                case 11: return prefix + "Min Y";
+                case 12: return prefix + "Max Y";
+                case 13: return prefix + "Min Z";
+                case 14: return prefix + "Max Z";
+                case 15: return prefix + "Blending Destination Mode";
+                case 16: return prefix + "Blending Source Mode";
+            }
+        },
+        oneditprepare: function () {
+            $("#node-input-location").typedInput({
+                type: "msg",
+                types: ["msg"],
+                typeField: "#node-input-location-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="get-view-attribute">
+    <div class="form-row">
+        <label for="node-input-attribute"><i class="fa fa-tag"></i> Attribute</label>
+        <select id="node-input-attribute">
+            <option value=-1>All Attributes</option>
+            <option value=0>Size</option>
+            <option value=1>Min Size</option>
+            <option value=2>Max Size</option>
+            <option value=3>Min Normalized X</option>
+            <option value=4>Max Normalized X</option>
+            <option value=5>Min Normalized Y</option>
+            <option value=6>Max Normalized Y</option>
+            <option value=7>Min Normalized Z</option>
+            <option value=8>Min Normalized Z</option>
+            <option value=9>Min X</option>
+            <option value=10>Max X</option>
+            <option value=11>Min Y</option>
+            <option value=12>Max Y</option>
+            <option value=13>Min Z</option>
+            <option value=14>Max Z</option>
+            <option value=15>Blending Destination Mode</option>
+            <option value=16>Blending Source Mode</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Storage Location</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-view-attribute">
+    <p>Retrieves an attribute from a View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>
+            view.name<span class="property-type">string</span>
+        </dt>
+        <dd>the view to get the attribute from</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>view.attributes<span class="property-type">array</span></dt>
+                <dd>the array containing the retrieved attributes</dd>
+            </dl>
+        </li>
+    </ol>
+    
+    <h3>Details</h3>
+    <p>All attributes are numbers. They can be read from the array using the following indices.
+        <ul>
+            <li>Size: 0</li>
+            <li>MinSize: 1</li>
+            <li>MaxSize: 2</li>
+            <li>MinNormX: 3</li>
+            <li>MaxNormX: 4</li>
+            <li>MinNormY: 5</li>
+            <li>MaxNormY: 6</li>
+            <li>MinNormZ: 7</li>
+            <li>MaxNormZ: 8</li>
+            <li>MinX: 9</li>
+            <li>MaxX: 10</li>
+            <li>MinY: 11</li>
+            <li>MaxY: 12</li>
+            <li>MinZ: 13</li>
+            <li>MaxZ: 14</li>
+            <li>BlendingDestinationMode: 15</li>
+            <li>BlendingSourceMode: 16</li>
+        </ul>
+    </p>
+</script>

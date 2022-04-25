@@ -1,0 +1,98 @@
+<script type="text/javascript">
+    RED.nodes.registerType('view-builder',{
+        category: 'ragrug-view',
+        color: '#bf9d73',
+        defaults: {
+            viewName: { value: "" },
+            pointCount: { value: 1 },
+            meshTopology: { value: 5 },
+            geometryType: { value: 1 },
+            clientFunction: { value: "RRJSIATK_ViewBuilder" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-gavel",
+        label: "view-builder"
+    });
+</script>
+
+<script type="text/html" data-template-name="view-builder">
+    <div class="form-row">
+        <label for="node-input-viewName"><i class="fa fa-tag"></i> View Name</label>
+        <input type="text" id="node-input-viewName">
+    </div>
+    <div class="form-row">
+        <label for="node-input-meshTopology"><i class="fa fa-map"></i> Topology</label>
+        <select id="node-input-meshTopology">
+            <option value=0>Triangles</option>
+            <option value=2>Quads</option>
+            <option value=3>Lines</option>
+            <option value=4>Line Strip</option>
+            <option value=5>Points</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-geometryType"><i class="fa fa-area-chart"></i> Geometry</label>
+        <select id="node-input-geometryType">
+            <option value=1>Points</option>
+            <option value=2>Lines</option>
+            <option value=3>Quads</option>
+            <option value=4>Lines and Dots</option>
+            <option value=5>Cubes</option>
+            <option value=6>Bars</option>
+            <option value=7>Spheres</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pointCount"><i class="fa fa-dot-arrows-h"></i> Point Count</label>
+        <input type="number" id="node-input-pointCount">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="view-builder">
+    <p>Creates a new View.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>viewBuilder.viewName
+            <span class="property-type">string</span>
+        </dt>
+        <dd>name of the view</dd>
+        <dt>viewBuilder.pointCount
+            <span class="property-type">int</span>
+        </dt>
+        <dd>the size of the point buffer</dd>
+        <dt>viewBuilder.meshTopology
+            <span class="property-type">int</span>
+        </dt>
+        <dd>topology of the resulting mesh</dd>
+        <dt>viewBuilder.geometryType
+            <span class="property-type">int</span>
+        </dt>
+        <dd>how the data points are interpreted</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>view.name<span class="property-type">string</span></dt>
+                <dd>name of the view</dd>
+                <dt>view.pointCount<span class="property-type">int</span></dt>
+                <dd>size of the point buffer</dd>
+                <dt>view.meshTopology<span class="property-type">int</span></dt>
+                <dd>topology of the view</dd>
+                <dt>view.geometryType<span class="property-type">int</span></dt>
+                <dd>geometry of this view</dd>
+                <dt>view.attributes<span class="property-type">array</span></dt>
+                <dd>array of attributes</dd>
+                <dt>view.data<span class="property-type">array</span></dt>
+                <dd>array of data</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>Values from <code>msg.viewBuilder</code> with the same name as input properties take precedence over them.</p>
+    <p>Any values set here are final and can not be changed, however they are the only values this applies to, any aspect of the view not set here can be changed on demand.</p>
+    <p>The additional values saved in <code>msg.view</code> are only stored in the message object, care should be taken to save them if needed.</p>
+</script>

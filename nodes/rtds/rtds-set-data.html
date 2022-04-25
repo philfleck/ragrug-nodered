@@ -1,0 +1,63 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-set-data',{
+        category: 'ragrug-rtds',
+        color: '#a699cf',
+        defaults: {
+            dimensionName: { value: "" },
+            context: { value: 0 },
+            location: { value: "rtdsData" },
+            clientFunction: { value: "RRJSIATK_RTDSSetData" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-database",
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-location").typedInput({
+                type: "msg",
+                types: ["msg"],
+                typeField: "#node-input-location-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-set-data">
+    <div class="form-row">
+        <label for="node-input-dimensionName"><i class="fa fa-database"></i> Dimension</label>
+        <input type="text" id="node-input-dimensionName">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-context"><i class="fa fa-tag"></i> Value Type</label>
+        <select id="node-input-context">
+            <option value=0>Float</option>
+            <option value=1>String</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Field</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtds-set-data">
+    <p>Retrieves data from a Realtime Data Source.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>rtds.name<span class="property-type">string</span></dt>
+        <dd>name of the data source to modify</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>rtdsData<span class="property-type">array</span></dt>
+                <dd>the full data contained in the specified dimension</dd>
+            </dl>
+        </li>
+    </ol>
+</script>

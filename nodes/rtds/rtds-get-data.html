@@ -1,0 +1,47 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-get-data',{
+        category: 'ragrug-rtds',
+        color: '#84d987',
+        defaults: {
+            dimensionName: { value: "" },
+            location: { value: "rtdsData" },
+            clientFunction: { value: "RRJSIATK_RTDSGetData" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-database",
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-location").typedInput({
+                type: "msg",
+                types: ["msg"],
+                typeField: "#node-input-location-type"
+            })
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-get-data">
+    <div class="form-row">
+        <label for="node-input-dimensionName"><i class="fa fa-database"></i> Dimension</label>
+        <input type="text" id="node-input-dimensionName">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Field</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtds-get-data">
+    <p>Adds a single value to a Realtime Data Source.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>rtds.name<span class="property-type">string</span></dt>
+        <dd>name of the data source to modify</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>If multiple values need to be added, it is suggested to use the API inside of a function node.</p>
+</script>

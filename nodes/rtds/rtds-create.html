@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtds-create',{
+        category: 'ragrug-rtds',
+        color: '#bf9d73',
+        defaults: {
+            rtdsName: { value: "" },
+            dimensionSize: { value: 100 },
+            clientFunction: { value: "RRJSIATK_RTDSCreate" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="rtds-create">
+    <div class="form-row">
+        <label for="node-input-rtdsName"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-rtdsName" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-dimensionSize"><i class="fa fa-arrows-h"></i> Dimension Size</label>
+        <input type="number" id="node-input-dimensionSize">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtds-create">
+    <p>Creates a Realtime Data Source.</p>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>rtds.name<span class="property-type">string</span></dt>
+                <dd>name of the data source</dd>
+                <dt>rtds.dimensionSize<span class="property-type">int</span></dt>
+                <dd>how many data points one dimension holds</dd>
+                <dt>rtds.dimensions<span class="property-type">array</span></dt>
+                <dd>empty array of dimensions</dd>
+            </dl>
+        </li>
+    </ol>
+</script>
