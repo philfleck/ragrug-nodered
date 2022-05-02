@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git://github.com/philfleck/ragrug-nodered.git"
   },
-  "license": "SEE LICENSE IN LICENSE FILE",
+  "license": "SEE LICENSE FILE",
   "keywords": ["node-red"],
   "node-red": {
     "version": ">=1.2.6",
@@ -34,7 +34,8 @@
       "rtds-add-dimension": "nodes/rtds/rtds-add-dimension.js",
       "rtds-add-dimension-discrete": "nodes/rtds/rtds-add-dimension-discrete.js",
       "rtds-get-data": "nodes/rtds/rtds-get-data.js",
-      "rtds-set-data": "nodes/rtds/rtds-set-data.js"
+      "rtds-set-data": "nodes/rtds/rtds-set-data.js",
+      "mrtk-button-group":  "nodes/mrtk/mrtk-button-group.js"
     }
   }
 }

@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mrtk-button-group',{
+        category: 'ragrug-mrtk',
+        color: '#bf9d73',
+        defaults: {
+            name: { value: "" },
+            layout: { value: "2x4" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-table",
+        label: ""
+    });
+</script>
+
+<script type="text/html" data-template-name="mrtk-button-group">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-layout"><i class="fa fa-table"></i> Layout</label>
+        <select id="node-input-layout">
+            <option value="2x4">2x4</option>
+            <option value="3x1">3x1</option>
+            <option value="3x2">3x2</option>
+            <option value="3x3">3x3</option>
+            <option value="4x1">4x1</option>
+            <option value="4x2">4x2</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="mrtk-button-group">
+    <p>defines a button group that all connected buttons are added to</p>
+</script>
