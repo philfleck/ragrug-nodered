@@ -36,6 +36,18 @@
 
 <script type="text/html" data-help-name="get-view">
     <p>Verifies that a View is present.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>View Name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>name of the View to retrieve</dd>
+        <dt>Continue On Fail
+            <span class="property-type">boolean</span>
+        </dt>
+        <dd>whether to send a message if the View does not exist</dd>
+    </dl>
+
     <h3>Outputs</h3>
     <ol class="node-ports">
         <li>
@@ -45,4 +57,7 @@
             </dl>
         </li>
     </ol>
+
+    <h3>Details</h3>
+    <p>Next to its primary function, this node can be used to guard against potentially deleted Views, or to prevent View duplication.</p>
 </script>

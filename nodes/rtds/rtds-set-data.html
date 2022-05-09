@@ -44,20 +44,32 @@
 </script>
 
 <script type="text/html" data-help-name="rtds-set-data">
-    <p>Retrieves data from a Realtime Data Source.</p>
+    <p>Adds a single value to a Realtime Data Source.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>
+            Dimension
+            <span class="property-type">string</span>
+        </dt>
+        <dd>dimension to insert into</dd>
+        <dt>
+            Value Type
+            <span class="property-type">select</span>
+        </dt>
+        <dd>data type of the value</dd>
+        <dt>
+            Field
+            <span class="property-type">string</span>
+        </dt>
+        <dd>field in the message to take the value from</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>rtds.name<span class="property-type">string</span></dt>
         <dd>name of the data source to modify</dd>
     </dl>
 
-    <h3>Outputs</h3>
-    <ol class="node-ports">
-        <li>
-            <dl class="message-properties">
-                <dt>rtdsData<span class="property-type">array</span></dt>
-                <dd>the full data contained in the specified dimension</dd>
-            </dl>
-        </li>
-    </ol>
+    <h3>Details</h3>
+    <p>If multiple values need to be added, it is suggested to use the API inside of a function node.</p>
 </script>

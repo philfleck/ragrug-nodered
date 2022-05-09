@@ -85,9 +85,26 @@
 
 <script type="text/html" data-help-name="set-view-attribute">
     <p>Sets an attribute for the given View.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>Attribute
+            <span class="property-type">select</span>
+        </dt>
+        <dd>attribute to set</dd>
+        <dt>Value
+            <span class="property-type">number</span>
+        </dt>
+        <dd>value to set the attribute to</dd>
+        <dt>Override
+            <span class="property-type">boolean</span>
+        </dt>
+        <dd>if true, override attributes from incoming message objects with value</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dt>view.name<span class="property-type">string</span>
+        <dt>
+            view.name<span class="property-type">string</span>
         </dt>
         <dt>
             msg.view.attributes<span class="property-type">array</span>

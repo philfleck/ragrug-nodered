@@ -77,6 +77,18 @@
 
 <script type="text/html" data-help-name="get-view-attribute">
     <p>Retrieves an attribute from a View.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>Attribute
+            <span class="property-type">select</span>
+        </dt>
+        <dd>which attribute to retrieve</dd>
+        <dt>Storage Location
+            <span class="property-type">string</span>
+        </dt>
+        <dd>where in the outbound message to store the attribute</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>
@@ -94,9 +106,10 @@
             </dl>
         </li>
     </ol>
-    
+
     <h3>Details</h3>
-    <p>All attributes are numbers. They can be read from the array using the following indices.
+    <p>
+        All attributes are numbers. They can be read from the array using the following indices.
         <ul>
             <li>Size: 0</li>
             <li>MinSize: 1</li>

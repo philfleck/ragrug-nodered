@@ -51,21 +51,49 @@
 
 <script type="text/html" data-help-name="view-builder">
     <p>Creates a new View.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>
+            View Name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>unique identifier and label for the view</dd>
+        <dt>
+            Topology
+            <span class="property-type">select</span>
+        </dt>
+        <dd>the mesh topology to be used, not all values and combinations supported by IATK</dd>
+        <dt>
+            Geometry
+            <span class="property-type">select</span>
+        </dt>
+        <dd>geometry type to use, not all values and combinations supported by IATK</dd>
+        <dt>
+            Point Count
+            <span class="property-type">int</span>
+        </dt>
+        <dd>amount of data points the view should hold</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
-        <dt>viewBuilder.viewName
+        <dt>
+            viewBuilder.viewName
             <span class="property-type">string</span>
         </dt>
         <dd>name of the view</dd>
-        <dt>viewBuilder.pointCount
+        <dt>
+            viewBuilder.pointCount
             <span class="property-type">int</span>
         </dt>
         <dd>the size of the point buffer</dd>
-        <dt>viewBuilder.meshTopology
+        <dt>
+            viewBuilder.meshTopology
             <span class="property-type">int</span>
         </dt>
         <dd>topology of the resulting mesh</dd>
-        <dt>viewBuilder.geometryType
+        <dt>
+            viewBuilder.geometryType
             <span class="property-type">int</span>
         </dt>
         <dd>how the data points are interpreted</dd>
@@ -93,6 +121,6 @@
 
     <h3>Details</h3>
     <p>Values from <code>msg.viewBuilder</code> with the same name as input properties take precedence over them.</p>
-    <p>Any values set here are final and can not be changed, however they are the only values this applies to, any aspect of the view not set here can be changed on demand.</p>
+    <p>Any values set here are final and can not be changed, however they are the only values this applies to, any aspect of the View not set here can be changed on demand.</p>
     <p>The additional values saved in <code>msg.view</code> are only stored in the message object, care should be taken to save them if needed.</p>
 </script>
