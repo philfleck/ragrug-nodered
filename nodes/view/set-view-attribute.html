@@ -3,7 +3,7 @@
         category: 'ragrug-view',
         color: '#a699cf',
         defaults: {
-            attribute: { value: 0 },
+            attribute: { value: -1 },
             attrValue: { value: 0 },
             attrOverride: { value: false },
             clientFunction: { value: "RRJSIATK_SetViewAttribute" }
@@ -113,5 +113,6 @@
     </dl>
 
     <h3>Details</h3>
-    <p><code>msg.view.data</code> can be manually constructed by inserting floats into the array.</p>
+    <p><code>msg.view.attributes</code> can be manually constructed by inserting floats into the array.</p>
+    <p>If All Attributes is chosen, the value attribute is ignored and values are taken from <code>msg.view.attributes</code>.</p>
 </script>

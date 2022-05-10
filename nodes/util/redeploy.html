@@ -14,12 +14,14 @@
 </script>
 
 <script type="text/html" data-template-name="redeploy">
-    <label for="node-input-CNRUpdateBehavior"><i class="fa fa-refesh"></i> Update Behavior</label>
-    <select id="node-input-CNRUpdateBehavior">
-        <option value=0>Create New (Default)</option>
-        <option value=1>Always Override</option>
-        <option value=2>If Changed Override</option>
-    </select>
+    <div class="form-row">
+        <label for="node-input-CNRUpdateBehavior"><i class="fa fa-refesh"></i> Behavior</label>
+        <select id="node-input-CNRUpdateBehavior">
+            <option value=0>Create New (Default)</option>
+            <option value=1>Always Override</option>
+            <option value=2>If Changed Override</option>
+        </select>
+    </div>
 
     <div class="form-row">
         <label for="node-input-flowId"><i class="fa fa-tag"></i> Flow ID</label>
@@ -31,7 +33,7 @@
     <p>Updates the client-side version of the flow on redeploy.</p>
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Update Behavior
+        <dt>Behavior
             <span class="property-type">select</span>
         </dt>
         <dd>what happens when redeploy is pressed</dd>

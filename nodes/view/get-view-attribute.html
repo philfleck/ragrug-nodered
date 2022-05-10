@@ -3,7 +3,7 @@
         category: 'ragrug-view',
         color: '#84d987',
         defaults: {
-            attribute: { value: 0 },
+            attribute: { value: -1 },
             location: { value: "view.attributes"},
             clientFunction: { value: "RRJSIATK_GetViewAttribute" }
         },
@@ -69,7 +69,7 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-location"><i class="fa fa-list"></i> Storage Location</label>
+        <label for="node-input-location"><i class="fa fa-list"></i> Field</label>
         <input type="text" id="node-input-location">
         <input type="hidden" id="node-input-location-type">
     </div>
@@ -83,7 +83,7 @@
             <span class="property-type">select</span>
         </dt>
         <dd>which attribute to retrieve</dd>
-        <dt>Storage Location
+        <dt>Field
             <span class="property-type">string</span>
         </dt>
         <dd>where in the outbound message to store the attribute</dd>

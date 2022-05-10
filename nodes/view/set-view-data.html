@@ -3,7 +3,7 @@
         category: 'ragrug-view',
         color: '#a699cf',
         defaults: {
-            viewData: { value: 0 },
+            viewData: { value: -1 },
             clientFunction: { value: "RRJSIATK_SetViewData" }
         },
         inputs: 1,
@@ -28,7 +28,7 @@
 
 <script type="text/html" data-template-name="set-view-data">
     <div class="form-row">
-        <label for="node-input-viewData"><i class="fa fa-database"></i> Data Field</label>
+        <label for="node-input-viewData"><i class="fa fa-database"></i> Data Type</label>
         <select id="node-input-viewData">
             <option value=-1>All Data</option>
             <option value=4>X Position</option>
@@ -47,7 +47,7 @@
     <p>Applies data arrays to a View.</p>
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Data Field
+        <dt>Data Type
             <span class="property-type">select</span>
         </dt>
         <dd>type of data that should be applied to the View</dd>
