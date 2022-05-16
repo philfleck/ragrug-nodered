@@ -1,19 +1,19 @@
 <script type="text/javascript">
-    RED.nodes.registerType('view-destroy-axis',{
-        category: 'ragrug-view',
-        color: '#8c8c8c',
+    RED.nodes.registerType('view-update-axis',{
+        category: 'ragrug',
+        color: '#be8fbf',
         defaults: {
             direction: { value: 1 },
-            clientFunction: { value: "RRJSIATK_ViewDestroyAxis" }
+            clientFunction: { value: "RRJSIATK_ViewUpdateAxis" }
         },
         inputs: 1,
         outputs: 1,
-        icon: "font-awesome/fa-bomb",
+        icon: "font-awesome/fa-refresh",
         label: ""
     });
 </script>
 
-<script type="text/html" data-template-name="view-destroy-axis">
+<script type="text/html" data-template-name="view-update-axis">
     <div class="form-row">
         <label for="node-input-direction"><i class="fa fa-arrows"></i> Axis</label>
         <select id="node-input-direction">
@@ -24,14 +24,15 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="view-destroy-axis">
-    <p>Destroys an axis of a View.</p>
+<script type="text/html" data-help-name="view-update-axis">
+    <p>Updates an axis to reflect the current state of the linked RTDS.</p>
+
     <h3>Attributes</h3>
     <dl class="message-properties">
         <dt>Axis
             <span class="property-type">select</span>
         </dt>
-        <dd>which axis to destroy</dd>
+        <dd>which axis to update</dd>
     </dl>
 
     <h3>Inputs</h3>
@@ -39,7 +40,4 @@
         <dt>view.name<span class="property-type">string</span></dt>
         <dd>name of the view holding the axis</dd>
     </dl>
-
-    <h3>Details</h3>
-    <p>Destroying an axis is final and can not be undone. If the axis should be accessible later, use the hide/show node instead.</p>
 </script>

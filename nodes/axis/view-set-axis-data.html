@@ -18,7 +18,7 @@
 <script type="text/html" data-template-name="view-set-axis-data">
     <div class="form-row">
         <div class="form-row">
-            <label for="node-input-dataSource"><i class="fa fa-table"></i> RDTS</label>
+            <label for="node-input-dataSource"><i class="fa fa-table"></i> RTDS</label>
             <input type="text" id="node-input-dataSource" placeholder="">
         </div>
 
@@ -38,6 +38,22 @@
 
 <script type="text/html" data-help-name="view-set-axis-data">
     <p>Links an axis and a Realtime Data Source.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>RTDS
+            <span class="property-type">string</span>
+        </dt>
+        <dd>name of the RTDS to be linked</dd>
+        <dt>Dimension
+            <span class="property-type">string</span>
+        </dt>
+        <dd>name of the dimension to be linked</dd>
+        <dt>Axis
+            <span class="property-type">select</span>
+        </dt>
+        <dd>which axis to link</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>view.name<span class="property-type">string</span></dt>

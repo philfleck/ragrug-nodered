@@ -1,6 +1,6 @@
 {
   "name": "@ragrug/ragrug-nodered",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "RagRug interface for Node-RED",
   "dependencies": {},
   "repository": {
@@ -26,6 +26,7 @@
       "view-destroy-axis": "nodes/axis/view-destroy-axis.js",
       "view-set-axis-data": "nodes/axis/view-set-axis-data.js",
       "view-set-axis-length": "nodes/axis/view-set-axis-length.js",
+      "view-update-axis": "nodes/axis/view-update-axis.js",
       "view-hide-show-axis": "nodes/axis/view-hide-show-axis.js",
       "rtds-create": "nodes/rtds/rtds-create.js",
       "rtds-get": "nodes/rtds/rtds-get.js",
@@ -35,7 +36,7 @@
       "rtds-add-dimension-discrete": "nodes/rtds/rtds-add-dimension-discrete.js",
       "rtds-get-data": "nodes/rtds/rtds-get-data.js",
       "rtds-set-data": "nodes/rtds/rtds-set-data.js",
-      "mrtk-button-group":  "nodes/mrtk/mrtk-button-group.js"
+      "mrtk-button-group": "nodes/mrtk/mrtk-button-group.js"
     }
   }
 }
