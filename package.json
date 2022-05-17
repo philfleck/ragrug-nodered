@@ -1,6 +1,6 @@
 {
   "name": "@ragrug/ragrug-nodered",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "RagRug interface for Node-RED",
   "dependencies": {},
   "repository": {
@@ -26,6 +26,7 @@
       "view-destroy-axis": "nodes/axis/view-destroy-axis.js",
       "view-set-axis-data": "nodes/axis/view-set-axis-data.js",
       "view-set-axis-length": "nodes/axis/view-set-axis-length.js",
+      "view-set-axis-tick-spacing": "nodes/axis/view-set-axis-tick-spacing.js",
       "view-update-axis": "nodes/axis/view-update-axis.js",
       "view-hide-show-axis": "nodes/axis/view-hide-show-axis.js",
       "rtds-create": "nodes/rtds/rtds-create.js",
