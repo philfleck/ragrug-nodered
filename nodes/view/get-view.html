@@ -4,20 +4,13 @@
         color: '#bdb96d',
         defaults: {
             viewName: { value: "" },
-            onFail: { value: false },
+            msgBehavior: { value: 0 },
             clientFunction: { value: "RRJSIATK_GetView" }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-eye",
-        label: "get-view",
-        oneditprepare: function () {
-            $("#node-input-onFail").typedInput({
-                type: "str",
-                types: ["bool"],
-                typeField: "#node-input-onFail-type"
-            })
-        }
+        label: ""
     });
 </script>
 
@@ -28,9 +21,12 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-onFail"><i class="fa fa-shield"></i> Msg On Fail</label>
-        <input type="text" id="node-input-onFail">
-        <input type="hidden" id="node-input-onFail-type">
+        <label for="node-input-msgBehavior"><i class="fa fa-shield"></i> Msg Behavior</label>
+        <select id="node-input-msgBehavior">
+            <option value=0>Always Send</option>
+            <option value=1>Send on Success</option>
+            <option value=2>Send on Fail</option>
+        </select>
     </div>
 </script>
 
@@ -42,10 +38,10 @@
             <span class="property-type">string</span>
         </dt>
         <dd>name of the View to retrieve</dd>
-        <dt>Msg On Fail
-            <span class="property-type">boolean</span>
+        <dt>Msg Behavior
+            <span class="property-type">select</span>
         </dt>
-        <dd>whether to send a message if the View does not exist</dd>
+        <dd>whether to send a message if the View does or does not exist</dd>
     </dl>
 
     <h3>Outputs</h3>

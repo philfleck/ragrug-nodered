@@ -27,7 +27,8 @@
     <p>Sets the insertion behavior of a Realtime Data Source.</p>
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Behavior
+        <dt>
+            Behavior
             <span class="property-type">select</span>
         </dt>
         <dd>how the data source should handle new data</dd>
@@ -38,4 +39,7 @@
         <dt>rtds.name<span class="property-type">string</span></dt>
         <dd>name of the data source to modify</dd>
     </dl>
+
+    <h3>Details</h3>
+    <p>In override mode, the RTDS acts like a ring buffer. When a new value is inserted and the dimension is full, the oldest value is replaced. In shift mode, new values are inserted at the end of the dimension and older values are shifted to the front, with the first one being removed.</p>
 </script>
