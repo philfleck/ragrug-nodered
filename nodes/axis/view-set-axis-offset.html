@@ -1,16 +1,23 @@
 <script type="text/javascript">
-    RED.nodes.registerType('view-update-axis',{
+    RED.nodes.registerType('view-set-axis-offset',{
         category: 'ragrug-view',
         color: '#be8fbf',
         defaults: {
+            offset: { value: 1 },
             axes: { value: "" },
-            clientFunction: { value: "RRJSIATK_ViewUpdateAxis" }
+            location: { value: "axisOffset" },
+            clientFunction: { value: "RRJSIATK_SetAxisOffset" }
         },
         inputs: 1,
         outputs: 1,
-        icon: "font-awesome/fa-refresh",
+        icon: "font-awesome/fa-arrows-h",
         label: "",
         oneditprepare: function () {
+            $("#node-input-location").typedInput({
+                type: "msg",
+                types: ["msg"],
+                typeField: "#node-input-location-type"
+            })
             $("#node-input-axes").typedInput({
                 type: "axes",
                 types: [
@@ -38,27 +45,53 @@
     });
 </script>
 
-<script type="text/html" data-template-name="view-update-axis">
+<script type="text/html" data-template-name="view-set-axis-offset">
+    <div class="form-row">
+        <label for="node-input-offset"><i class="fa fa-arrows-h"></i> Offset</label>
+        <input type="number" id="node-input-offset" step="0.01" placeholder="">
+    </div>
+
     <div class="form-row">
         <label for="node-input-axes"><i class="fa fa-arrows"></i> Axes</label>
         <input type="text" id="node-input-axes">
     </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Field</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
+    </div>
 </script>
 
-<script type="text/html" data-help-name="view-update-axis">
-    <p>Updates an axis to reflect the current state of the linked RTDS.</p>
+<script type="text/html" data-help-name="view-set-axis-offset">
+    <p>Sets the tick spacing of an axis.</p>
 
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Axes
+        <dt>
+            Offset
+            <span class="property-type">float</span>
+        </dt>
+        <dd>offset from origin</dd>
+        <dt>
+            Axes
             <span class="property-type">select</span>
         </dt>
-        <dd>which axes to update</dd>
+        <dd>which axes to modify</dd>
+        <dt>
+            Field
+            <span class="property-type">string</span>
+        </dt>
+        <dd>where in the msg object the value is</dd>
     </dl>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>view.name<span class="property-type">string</span></dt>
-        <dd>name of the view holding the axis</dd>
+        <dd>name of the view to modify</dd>
     </dl>
+
+    <h3>Details</h3>
+    <p>The offset uses the same unit as the axis length. The offset is only relevant for axes other than the standard XYZ axes and should generally be equal to the Max value of the respective dimension.</p>
+    <p>If no data is found at the specified msg location, the Offset attribute is used instead.</p>
 </script>

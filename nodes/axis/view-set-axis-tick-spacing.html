@@ -4,7 +4,7 @@
         color: '#be8fbf',
         defaults: {
             spacing: { value: 0.075 },
-            direction: { value: 1 },
+            axes: { value: "" },
             location: { value: "tickSpacing" },
             clientFunction: { value: "RRJSIATK_SetAxisTickSpacing" }
         },
@@ -18,6 +18,29 @@
                 types: ["msg"],
                 typeField: "#node-input-location-type"
             })
+            $("#node-input-axes").typedInput({
+                type: "axes",
+                types: [
+                    {
+                        value: "axes",
+                        multiple: "true",
+                        options: [
+                            { value: "x", label: "X Front Bottom" },
+                            { value: "x-u", label: "X Front Top" },
+                            { value: "x-b", label: "X Back Bottom" },
+                            { value: "x-ub", label: "X Back Top" },
+                            { value: "y", label: "Y Front Left" },
+                            { value: "y-r", label: "Y Front Right" },
+                            { value: "y-b", label: "Y Back Left" },
+                            { value: "y-rb", label: "Y Back Right" },
+                            { value: "z", label: "Z Bottom Left" },
+                            { value: "z-r", label: "Z Bottom Right" },
+                            { value: "z-u", label: "Z Top Left" },
+                            { value: "z-ru", label: "Z Top Right" },
+                        ]
+                    }
+                ]
+            })
         }
     });
 </script>
@@ -29,12 +52,8 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-direction"><i class="fa fa-arrows"></i> Axis</label>
-        <select id="node-input-direction">
-            <option value=1>X</option>
-            <option value=2>Y</option>
-            <option value=3>Z</option>
-        </select>
+        <label for="node-input-axes"><i class="fa fa-arrows"></i> Axes</label>
+        <input type="text" id="node-input-axes">
     </div>
 
     <div class="form-row">
@@ -53,10 +72,10 @@
             <span class="property-type">float</span>
         </dt>
         <dd>minimum distance between tick labels</dd>
-        <dt>Axis
+        <dt>Axes
             <span class="property-type">select</span>
         </dt>
-        <dd>which axis to modify</dd>
+        <dd>which axes to modify</dd>
         <dt>Field
             <span class="property-type">string</span>
         </dt>

@@ -3,24 +3,45 @@
         category: 'ragrug-view',
         color: '#8c8c8c',
         defaults: {
-            direction: { value: 1 },
+            axes: { value: "" },
             clientFunction: { value: "RRJSIATK_ViewDestroyAxis" }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-bomb",
-        label: ""
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-axes").typedInput({
+                type: "axes",
+                types: [
+                    {
+                        value: "axes",
+                        multiple: "true",
+                        options: [
+                            { value: "x", label: "X Front Bottom" },
+                            { value: "x-u", label: "X Front Top" },
+                            { value: "x-b", label: "X Back Bottom" },
+                            { value: "x-ub", label: "X Back Top" },
+                            { value: "y", label: "Y Front Left" },
+                            { value: "y-r", label: "Y Front Right" },
+                            { value: "y-b", label: "Y Back Left" },
+                            { value: "y-rb", label: "Y Back Right" },
+                            { value: "z", label: "Z Bottom Left" },
+                            { value: "z-r", label: "Z Bottom Right" },
+                            { value: "z-u", label: "Z Top Left" },
+                            { value: "z-ru", label: "Z Top Right" },
+                        ]
+                    }
+                ]
+            })
+        }
     });
 </script>
 
 <script type="text/html" data-template-name="view-destroy-axis">
     <div class="form-row">
-        <label for="node-input-direction"><i class="fa fa-arrows"></i> Axis</label>
-        <select id="node-input-direction">
-            <option value=1>X</option>
-            <option value=2>Y</option>
-            <option value=3>Z</option>
-        </select>
+        <label for="node-input-axes"><i class="fa fa-arrows"></i> Axes</label>
+        <input type="text" id="node-input-axes">
     </div>
 </script>
 
@@ -28,10 +49,10 @@
     <p>Destroys an axis of a View.</p>
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Axis
+        <dt>Axes
             <span class="property-type">select</span>
         </dt>
-        <dd>which axis to destroy</dd>
+        <dd>which axes to destroy</dd>
     </dl>
 
     <h3>Inputs</h3>

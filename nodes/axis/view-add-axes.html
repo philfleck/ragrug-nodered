@@ -3,21 +3,59 @@
         category: 'ragrug-view',
         color: '#bf9d73',
         defaults: {
+            axes: { value: "" },
             clientFunction: { value: "RRJSIATK_ViewAddAxes" }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-bar-chart",
-        label: ""
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-axes").typedInput({
+                type: "axes",
+                types: [
+                    {
+                        value: "axes",
+                        multiple: "true",
+                        options: [
+                            { value: "x", label: "X Front Bottom" },
+                            { value: "x-u", label: "X Front Top" },
+                            { value: "x-b", label: "X Back Bottom" },
+                            { value: "x-ub", label: "X Back Top" },
+                            { value: "y", label: "Y Front Left" },
+                            { value: "y-r", label: "Y Front Right" },
+                            { value: "y-b", label: "Y Back Left" },
+                            { value: "y-rb", label: "Y Back Right" },
+                            { value: "z", label: "Z Bottom Left" },
+                            { value: "z-r", label: "Z Bottom Right" },
+                            { value: "z-u", label: "Z Top Left" },
+                            { value: "z-ru", label: "Z Top Right" },
+                        ]
+                    }
+                ]
+            })
+        }
     });
 </script>
 
 <script type="text/html" data-template-name="view-add-axes">
-
+    <div class="form-row">
+        <label for="node-input-axes"><i class="fa fa-arrows"></i> Axes</label>
+        <input type="text" id="node-input-axes">
+    </div>
 </script>
 
 <script type="text/html" data-help-name="view-add-axes">
     <p>Adds unconfigured axes to all three dimensions of a View.</p>
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>
+            Axes
+            <span class="property-type">select</span>
+        </dt>
+        <dd>which axes to create</dd>
+    </dl>
+
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>view.name<span class="property-type">string</span></dt>

@@ -4,13 +4,39 @@
         color: '#be8fbf',
         defaults: {
             newLength: { value: 1 },
-            direction: { value: 1 },
+            axes: { value: "" },
+            location: { value: "axisLength" },
             clientFunction: { value: "RRJSIATK_ViewSetAxisLength" }
         },
         inputs: 1,
         outputs: 1,
-        icon: "font-awesome/fa-bar-chart",
-        label: ""
+        icon: "font-awesome/fa-arrows-h",
+        label: "",
+        oneditprepare: function () {
+            $("#node-input-axes").typedInput({
+                type: "axes",
+                types: [
+                    {
+                        value: "axes",
+                        multiple: "true",
+                        options: [
+                            { value: "x", label: "X Front Bottom" },
+                            { value: "x-u", label: "X Front Top" },
+                            { value: "x-b", label: "X Back Bottom" },
+                            { value: "x-ub", label: "X Back Top" },
+                            { value: "y", label: "Y Front Left" },
+                            { value: "y-r", label: "Y Front Right" },
+                            { value: "y-b", label: "Y Back Left" },
+                            { value: "y-rb", label: "Y Back Right" },
+                            { value: "z", label: "Z Bottom Left" },
+                            { value: "z-r", label: "Z Bottom Right" },
+                            { value: "z-u", label: "Z Top Left" },
+                            { value: "z-ru", label: "Z Top Right" },
+                        ]
+                    }
+                ]
+            })
+        }
     });
 </script>
 
@@ -21,12 +47,14 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-direction"><i class="fa fa-arrows"></i> Axis</label>
-        <select id="node-input-direction">
-            <option value=1>X</option>
-            <option value=2>Y</option>
-            <option value=3>Z</option>
-        </select>
+        <label for="node-input-axes"><i class="fa fa-arrows"></i> Axes</label>
+        <input type="text" id="node-input-axes">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-location"><i class="fa fa-list"></i> Field</label>
+        <input type="text" id="node-input-location">
+        <input type="hidden" id="node-input-location-type">
     </div>
 </script>
 
@@ -34,14 +62,21 @@
     <p>Sets the length of an axis.</p>
     <h3>Attributes</h3>
     <dl class="message-properties">
-        <dt>Length
+        <dt>
+            Length
             <span class="property-type">float</span>
         </dt>
-        <dd>new lenght of the axis</dd>
-        <dt>Axis
+        <dd>new length of the axes</dd>
+        <dt>
+            Axis
             <span class="property-type">select</span>
         </dt>
-        <dd>which axis to resize</dd>
+        <dd>which axes to resize</dd>
+        <dt>
+            Field
+            <span class="property-type">string</span>
+        </dt>
+        <dd>where in the msg object the value is</dd>
     </dl>
 
     <h3>Inputs</h3>
@@ -52,4 +87,5 @@
 
     <h3>Details</h3>
     <p>Length is measured in meters, a standard View is 1x1x1 meters big. If the View's maximum XYZ have been changed, the axis length should be changed to reflect this.</p>
+    <p>If no data is found at the specified msg location, the Length attribute is used instead.</p>
 </script>
