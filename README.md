@@ -2,6 +2,6 @@ Adds nodes for Node-RED that interact with IATK on the RagRug client. Many of th
 
 There are several examples available that can be imported into Node-RED directly by selecting Import > Examples > @ragrug/ragrug-nodered in the Node-RED menu.
 
-[](https://raw.githubusercontent.com/philfleck/ragrug-nodered/main/importExample.png)
+![](https://raw.githubusercontent.com/philfleck/ragrug-nodered/main/importExample.png)
 
 RagRug is available here: https://github.com/philfleck/ragrug
