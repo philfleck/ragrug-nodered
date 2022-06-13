@@ -1,0 +1,88 @@
+<script type="text/javascript">
+    RED.nodes.registerType('client-function',{
+        category: 'ragrug',
+        color: "#ffffff",
+        defaults: {
+            name: { value: "client-function" },
+            clientFunction: { value: "" },
+            description: { value: "" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-code",
+        label: function () { return this.name || "client-function"; },
+        oneditprepare: function () {
+            this.editor = RED.editor.createEditor({
+                id: 'node-input-example-editor',
+                mode: 'ace/mode/text',
+                value: this.description
+            });
+        },
+        oneditsave: function () {
+            this.exampleText = this.editor.getValue();
+            this.editor.destroy();
+            delete this.editor;
+        },
+        oneditcancel: function () {
+            this.editor.destroy();
+            delete this.editor;
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="client-function">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-clientFunction"><i class="fa fa-code"></i> Function</label>
+        <input type="text" id="node-input-clientFunction" placeholder="">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-example-editor"><i class="fa fa-tag"></i> Description</label>
+        <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-example-editor"></div>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="client-function">
+    <p></p>
+    
+    <h3>Attributes</h3>
+    <dl class="message-properties">
+        <dt>Name
+            <span class="property-type">string</span>
+        </dt>
+        <dd>node name that is shown as its label</dd>
+        <dt>Function
+            <span class="property-type">string</span>
+        </dt>
+        <dd>client function to call for this node</dd>
+        <dt>Description
+            <span class="property-type">string</span>
+        </dt>
+        <dd>description text to show what the node does</dd>
+    </dl>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>msg<span class="property-type">object</span></dt>
+        <dd>the entire message object, behavior depends on client function</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>msg<span class="property-type">object</span></dt>
+                <dd>message object depending on client function</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>This node allows for the calling of arbitrary client functions, both ones that are already present in CNRIF and ones that were added from other sources.</p>
+    <p>This is an advanced feature, it is recommended to familiarize yourself with the inner workings of RagRug and CNRIF first.</p>
+</script>

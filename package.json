@@ -16,6 +16,7 @@
     "version": ">=1.2.6",
     "nodes": {
       "redeploy": "nodes/util/redeploy.js",
+      "client-function": "nodes/util/client-function.js",
       "view-builder": "nodes/view/view-builder.js",
       "get-view": "nodes/view/get-view.js",
       "hide-show-view": "nodes/view/hide-show-view.js",
