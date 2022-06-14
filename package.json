@@ -1,6 +1,6 @@
 {
   "name": "@ragrug/ragrug-nodered",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "RagRug interface for Node-RED",
   "dependencies": {},
   "engines": {
