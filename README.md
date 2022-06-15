@@ -6,7 +6,7 @@ There are several examples available that can be imported into Node-RED directly
 
 RagRug is available here: https://github.com/philfleck/ragrug
 
-### Nodes with Special Behavior on the RagRug Client
+## Nodes with Special Behavior on the RagRug Client
 
 Most default Node-RED nodes do not work on the client, only those listed here have any effect.
 
@@ -38,7 +38,7 @@ Works as normal. Only supports raw text and JSON outputs. Only supports ignoring
 
 On load, creates a floating button in the scene. When clicked sends a message to any nodes connected to its output, this message is client-side only. Ignores all other settings except for the label.
 
-### TODOs
+## TODOs
 
 - Support more features of already supported nodes. Examples:
     -  Custom messages for Inject.
